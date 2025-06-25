@@ -18,10 +18,19 @@ import CounterThreeReducerMethod from './components/CounterThreeReducerModel';
 import CompoA from './components/CompoA';
 import CompoB from './components/CompoB';
 import CompoC from './components/CompoC';
+import ParentComponent from './components/ParentComponent';
+import Counter from './components/Counter';
+import FocusInput from './components/FocusInput';
+import ClassTimer from './components/ClassTimer';
+import HookTimer from './components/HookTimer';
+import DocTitleOne from './components/DocTitleOne';
+import DocTitleTwo from './components/DocTitleTwo';
+import UseCounterOne from './components/useCounterOne';
+import UseCounterTwo from './components/useCounterTwo'
+import UseForm from './components/UseForm';
 
 export const UserContext = React.createContext()
 export const ChannelContext = React.createContext()
-
 export const CountContext = React.createContext()
 
 const initialState = 0
@@ -43,32 +52,44 @@ function App() {
   const [count, dispatch] = useReducer(reducer, initialState)
 
   return (
-    <CountContext.Provider value={{ countState: count, countDispatch: dispatch}}>
-      <div className="App">
-        count = {count}
-        <CompoA />
-        <CompoB />
-        <CompoC />
-        {/* <CounterThreeReducerMethod /> */}
-        {/* <CounterTwoReducerMethod /> */}
-        {/* <CounterReducerMethod /> */}
-        {/* <UserContext.Provider value={'Harshil'}>
-          <ChannelContext.Provider value={'Vaja'}>
-            <ComponentC />
-          </ChannelContext.Provider>
-        </UserContext.Provider> */}
-        {/* <DataFetching /> */}
-        {/* <IntervalHookCounter /> */}
-        {/* <MouseContainer /> */}
-        {/* <HookMouse /> */}
-        {/* <HookCounterDocChange /> */}
-        {/* <HookCounterFour /> */}
-        {/* <HookCounterThree /> */}
-        {/* <HookCounterTwo /> */}
-        {/* <HookCounter /> */}
-        {/* <ClassCounter /> */}
-      </div>
-    </CountContext.Provider>
+    <div className="App">
+      <UseForm />
+      {/* <UseCounterOne />
+      <UseCounterTwo /> */}
+      {/* <DocTitleOne />
+      <DocTitleTwo /> */}
+      {/* <ClassTimer />
+      <HookTimer /> */}
+      {/* <FocusInput /> */}
+      {/* <Counter /> */}
+        {/* <ParentComponent /> */}
+    </div>
+    // <CountContext.Provider value={{ countState: count, countDispatch: dispatch}}>
+    //   <div className="App">
+    //     count = {count}
+    //     <CompoA />
+    //     <CompoB />
+    //     <CompoC />
+    //     {/* <CounterThreeReducerMethod /> */}
+    //     {/* <CounterTwoReducerMethod /> */}
+    //     {/* <CounterReducerMethod /> */}
+    //     {/* <UserContext.Provider value={'Harshil'}>
+    //       <ChannelContext.Provider value={'Vaja'}>
+    //         <ComponentC />
+    //       </ChannelContext.Provider>
+    //     </UserContext.Provider> */}
+    //     {/* <DataFetching /> */}
+    //     {/* <IntervalHookCounter /> */}
+    //     {/* <MouseContainer /> */}
+    //     {/* <HookMouse /> */}
+    //     {/* <HookCounterDocChange /> */}
+    //     {/* <HookCounterFour /> */}
+    //     {/* <HookCounterThree /> */}
+    //     {/* <HookCounterTwo /> */}
+    //     {/* <HookCounter /> */}
+    //     {/* <ClassCounter /> */}
+    //   </div>
+    // </CountContext.Provider>
   );
 }
 
