@@ -8,12 +8,23 @@ import Parent from './components/Parent Child/Parent';
 import ParentOne from './components/Optimization/ParentOne';
 import ChildOne from './components/Optimization/ChildOne';
 import GrandParent from './components/Optimization/GrandParent';
+import ParentTwo from './components/Optimization/ParentTwo';
+import ParentThree from './components/IncorrectOptimizations/ParentThree';
+import ParentFive from './components/IncorrectOptimizations/ParentFive';
+import ContextParent from './components/ContextParent';
+import { ChildA } from './components/ContextChild';
 
 
 function App() {
   return (
     <div className="App">
-      <GrandParent />
+      <ContextParent>
+        <ChildA/>
+      </ContextParent>
+      {/* <ParentFive /> */}
+      {/* <ParentThree /> */}
+      {/* <ParentTwo /> */}
+      {/* <GrandParent /> */}
       {/* <ParentOne>
         <ChildOne />
       </ParentOne> */}
