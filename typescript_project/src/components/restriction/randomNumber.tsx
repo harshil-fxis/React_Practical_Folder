@@ -20,13 +20,7 @@ type ZeroNumber = RandomNumberType & {
     isZero: boolean
 }
 
-
-type RandomNumberProps = {
-    value: number
-    isPositive?: boolean
-    isNegative?: boolean
-    isZero?: boolean
-}
+type RandomNumberProps = PositiveNumber | NegativeNumber | ZeroNumber
 
 
 export const RandomNumber = ({value,isPositive,isNegative,isZero}: 

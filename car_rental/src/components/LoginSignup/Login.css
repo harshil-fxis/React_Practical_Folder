@@ -1,0 +1,156 @@
+.container {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background: rgb(222, 221, 221);
+}
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.text {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+.header1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+    text-align: left;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    padding-right: 10px;
+}
+.input-field {
+    height: 40px;
+    width: 100%;
+    padding: 0 15px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 7px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.row-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.remember input {
+    margin-right: 10px;
+}
+.forgot {
+    padding-right: 10px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+.btn {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    padding-right: 10px;
+}
+.btn1 {
+    height: 45px;
+    color: white;
+    background: black;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn2 {
+    height: 45px;
+    color: black;
+    background: rgb(199, 197, 197);
+    border-radius: 25px;
+    border: 1px solid black;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn-with {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    padding-right: 10px;
+}
+.icon1{
+    font-size: 23px;
+    align-items: center;
+}
+.icon2{
+    font-size: 20px;
+    align-items: center;
+}
+.btn3 {
+    height: 45px;
+    color: black;
+    background: rgb(216, 215, 215);
+    border-radius: 25px;
+    border: 1px solid black;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+.btn4 {
+    height: 45px;
+    color: black;
+    background: rgb(216, 215, 215);
+    border-radius: 25px;
+    border: 1px solid black;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+.btm-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 5px;
+    font-size: 12px;
+}
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: black;
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid rgb(177, 171, 171);
+}
+.divider::before {
+    margin-right: 15px;
+}
+.divider::after {
+    margin-left: 15px;
+}
