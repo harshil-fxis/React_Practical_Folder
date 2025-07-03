@@ -23,7 +23,7 @@ class SignupPage extends Component {
         e.preventDefault()
         const {name, email, password, country} = this.state;
         console.log(this.state)
-        axios.post('https://jsonplaceholder.typicode.com/users', {
+        axios.post('https://7a9c-103-173-21-78.ngrok-free.app/signup', {
             name,email,password,country})
             .then(response => {
                 alert("Signup Successful!")

@@ -1,0 +1,112 @@
+.profile-container {
+    width: 100%;
+    padding: 0px;
+    box-sizing: border-box;
+    background: rgb(247, 242, 242);
+}
+.profile-header {
+    height: 90px;
+    width: 100%;
+    max-width: calc(100% - 40px);
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
+    background: rgb(227, 223, 223);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(168, 167, 167);
+}
+.back-arrow {
+    background: rgb(232, 228, 228);
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    border: 1px solid rgb(183, 178, 178);
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dot-option {
+    background: rgb(232, 228, 228);
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    border: 1px solid rgb(183, 178, 178);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.body {
+    display: flex;
+    width: 100%;
+    max-width: calc(100% - 40px);
+    padding: 20px;
+    
+}
+.body-column{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    text-align: left;
+}
+.first-row {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+    align-items: center;
+}
+.profile-part {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    text-align: left;
+}
+.edit-part {
+    display: flex;
+    width: 125px;
+    text-align: right;
+}
+.text {
+    display: flex;
+    display: flex;
+    gap: 4px; 
+    text-align: left;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px;
+}
+.name {
+    font-weight: 600;
+    font-size: 18px;
+}
+.email {
+    font-size: 15px;
+}
+.edit-profile-button {
+    display: flex;
+    gap: 4px; 
+    text-align: right;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.gap-colunm {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;    
+}
+.merge-row {
+    display: flex;
+    gap: 10px; 
+    text-align: left;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

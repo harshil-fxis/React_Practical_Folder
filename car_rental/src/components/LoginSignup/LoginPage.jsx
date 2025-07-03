@@ -4,12 +4,14 @@ import './Login.css'
 import { FaApple,FaGoogle } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { loginSuccess } from '../../redux/useSlices';
+import { connect } from 'react-redux';
 
 class LoginPage extends Component {
   constructor(props) {
       super(props)
       this.state = {
-         username: '',
+         email: '',
          password: '',
          isChecked: false
       }
@@ -22,17 +24,15 @@ class LoginPage extends Component {
     }
     loginHandler = (e) => {
         e.preventDefault();
-        // username: "mor_2314",
-        //password: "83r5^_"
-        axios.post('https://fakestoreapi.com/auth/login', {
-          username: this.state.username,
+        axios.post('https://7a9c-103-173-21-78.ngrok-free.app/login', {
+          email: this.state.email,
           password: this.state.password
-          // email: this.state.email,
-          // password: this.state.password
         })
         .then(response => {
+          this.props.loginSuccess(response.data)
           console.log(response.data)
           alert("Login successfully!")
+          this.props.navigate('/bottom/home')
           // this.props.navigate('/home')
         })
         .catch(error => {
@@ -41,10 +41,8 @@ class LoginPage extends Component {
         })
     }
 
-
-
   render() {
-    const {username, password, error} = this.state;
+    const {email, password, error} = this.state;
     return (
       <div className='container'>
         <div className='header'>
@@ -52,7 +50,7 @@ class LoginPage extends Component {
         </div>
         <div className='header1'><h2>Welcome Back <br/>Ready to hit the road.</h2></div>
         <div className='form'>
-          <input className='input-field' type='text' name='username' value={username} onChange={this.changeHandler} placeholder='Email/Phone Number' />
+          <input className='input-field' type='email' name='email' value={email} onChange={this.changeHandler} placeholder='Email/Phone Number' />
           <input className='input-field' type='password' name='password' value={password} onChange={this.changeHandler} placeholder='Password'/>
         </div>
         <div className='row-options'>
@@ -76,13 +74,14 @@ class LoginPage extends Component {
         <div className='btm-text'>
           <div>Dont't have an account?</div>
           <a href='#' className='forgot'>Sign Up.</a>
-          
-
         </div>
       </div>
     )
   }
 }
+const mapDispatchToProps = {
+      loginSuccess,
+}
 
-export default LoginPage
+export default connect(null, mapDispatchToProps)(LoginPage);
 
