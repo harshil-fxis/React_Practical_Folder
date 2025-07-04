@@ -4,6 +4,7 @@ import './Login.css'
 import { FaApple,FaGoogle } from "react-icons/fa";
 import { useNavigate, useLocation, useParams, Navigate } from 'react-router-dom';
 import axios from 'axios'
+import withRouter from '../withRouter';
 
 
 class SignupPage extends Component {
@@ -23,7 +24,7 @@ class SignupPage extends Component {
         e.preventDefault()
         const {name, email, password, country} = this.state;
         console.log(this.state)
-        axios.post('https://7a9c-103-173-21-78.ngrok-free.app/signup', {
+        axios.post('https://b52d-103-173-21-78.ngrok-free.app/signup', {
             name,email,password,country})
             .then(response => {
                 alert("Signup Successful!")
@@ -71,4 +72,4 @@ class SignupPage extends Component {
     }
 }
 
-export default SignupPage
+export default withRouter(SignupPage)

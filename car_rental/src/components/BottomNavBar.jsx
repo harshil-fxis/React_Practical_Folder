@@ -1,7 +1,8 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import './BottomNavBar.css';
 import { RiHome5Line } from "react-icons/ri";
 import { IoPersonOutline } from "react-icons/io5";
+import { useEffect } from "react";
 
 const BottomNavBar = () => {
     return(

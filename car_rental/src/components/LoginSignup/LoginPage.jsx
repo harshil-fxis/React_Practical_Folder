@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { loginSuccess } from '../../redux/useSlices';
 import { connect } from 'react-redux';
+import withRouter from '../withRouter';
 
 class LoginPage extends Component {
   constructor(props) {
@@ -23,16 +24,31 @@ class LoginPage extends Component {
       this.setState({isChecked: e.target.checked})
     }
     loginHandler = (e) => {
+      localStorage.clear()
         e.preventDefault();
-        axios.post('https://7a9c-103-173-21-78.ngrok-free.app/login', {
+        axios.post('https://b52d-103-173-21-78.ngrok-free.app/login', {
           email: this.state.email,
           password: this.state.password
         })
         .then(response => {
-          this.props.loginSuccess(response.data)
+          
+          // this.props.loginSuccess(response.data)
+          const data = response.data
+          const token = response.data.access_token
+          const name = response.data.userName
+          const email = response.data.userEmail
+          const profilePic = response.data.profilePic
+          
+          localStorage.setItem("token", token)
+          localStorage.setItem("name", name)
+          localStorage.setItem("email", email)
+          localStorage.setItem("profilePic", profilePic)
+          
           console.log(response.data)
           alert("Login successfully!")
-          this.props.navigate('/bottom/home')
+          this.props.loginSuccess(data)
+          return this.props.navigate('/bottom/home')
+          
           // this.props.navigate('/home')
         })
         .catch(error => {
@@ -62,7 +78,7 @@ class LoginPage extends Component {
         </div>
         <div className='btn'>
           <button className='btn1' onClick={this.loginHandler}>Login</button>
-          <button className='btn2' onClick={() => this.props.navigate('/signup')}>Sing up</button>
+          <button className='btn2' onClick={() => this.props.navigate('/signup')}>Sign up</button>
         </div>
         <div className='divider'>
           <span>Or</span>
@@ -83,5 +99,5 @@ const mapDispatchToProps = {
       loginSuccess,
 }
 
-export default connect(null, mapDispatchToProps)(LoginPage);
+export default connect(null, mapDispatchToProps)(withRouter(LoginPage));
 

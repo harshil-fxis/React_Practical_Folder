@@ -2,7 +2,7 @@
     width: 100%;
     padding: 0px;
     box-sizing: border-box;
-    background: rgb(247, 242, 242);
+    background: rgb(255, 255, 255);
 }
 .profile-header {
     height: 90px;
@@ -18,11 +18,11 @@
     border-bottom: 1px solid rgb(168, 167, 167);
 }
 .back-arrow {
-    background: rgb(232, 228, 228);
+    background: rgb(235, 233, 233);
     width: 40px;
     height: 40px;
     border-radius: 50px;
-    border: 1px solid rgb(183, 178, 178);
+    border: 1px solid rgb(182, 176, 176);
     font-size: 25px;
     display: flex;
     align-items: center;
@@ -71,6 +71,9 @@
     width: 125px;
     text-align: right;
 }
+.edit-part span {
+    font-size: 14px;
+}
 .text {
     display: flex;
     display: flex;
@@ -109,4 +112,16 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+.logout-btn {
+    border: none;
+    display: flex;
+    background: transparent;
+    width: 100%;
+    padding: 0px;
+    cursor: pointer;
+}
+.arrow {
+    font-size: 28px;
+    color: rgb(188, 186, 186);
 }
