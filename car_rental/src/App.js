@@ -7,7 +7,7 @@ import HomePage from './components/HomePage';
 import BottomNavBar from './components/BottomNavBar';
 import BottomPage from './components/BottomPage';
 import { useEffect } from 'react';
-
+import ProfilePage from './components/ProfilePage';
 
 const AppWrapper = () => {
   const navigate = useNavigate()
@@ -16,14 +16,11 @@ const AppWrapper = () => {
     const token = localStorage.getItem("token")
     const currentPath = window.location.pathname
     // const token = null 
-    if(token){
-      if(!currentPath.startsWith("/bottom")){
-        navigate("/bottom/home")
-      }
-    }else{
-      if(currentPath.startsWith("/bottom")){
-        navigate("/")
-      }
+    if(token && currentPath == "/" ){
+      navigate("/home")
+    }
+    if(!token && currentPath == "/"){
+      navigate("/")
     }
   },[navigate])
   return(
@@ -31,7 +28,8 @@ const AppWrapper = () => {
         <Routes>
           <Route path='/' element={<LoginPage />} />
           <Route path='/signup' element={<SignupPage />} />
-          <Route path='/bottom/*' element={<BottomPage />} />
+          <Route path='/home' element={<HomePage />} />
+          <Route path='/profile' element={<ProfilePage />} />
         </Routes>
     </div>
   )

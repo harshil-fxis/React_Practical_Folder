@@ -18,6 +18,8 @@ import './Page.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../redux/useSlices';
+import logo from './Assets/Group 1529.png';
+import { NavLink } from 'react-router-dom';
 
 function ProfilePage() {
   // const userData = useSelector((state) => state.user)
@@ -42,22 +44,24 @@ function ProfilePage() {
 
   return (
     <div className='profile-container'>
-      <div className='profile-header'>
-        <div className='back-arrow'><IoChevronBack/></div>
-        <h2>Profile</h2>
-        <div className='dot-option'><BsThreeDots/></div>
+      <div className='header'>
+        <div className='text'> <img src={logo} alt=''/><h2>Qent</h2></div>
+        <div className='headerNav'>
+          <NavLink to="/home" className="nav-item">Home</NavLink>
+          <NavLink to="/profile" className="nav-item">Profile</NavLink>              
+        </div>
       </div>
       <div className='body'> 
         <div className='body-column'>
           <div className='first-row'>
             <div className='profile-part'>
               <div className='profile-img'><img src={
-                !profilePic
+                profilePic
                   ? profile 
-                  : `https://b52d-103-173-21-78.ngrok-free.app/uploads/${profilePic}`
+                  : `https://4bb9-103-173-21-78.ngrok-free.app/uploads/${profilePic}`
                 } 
                 alt='' style={{width:"70px",height: "70px", borderRadius: "50%",objectFit: 'cover' }}/></div>
-              <div className='text'>
+              <div className='profile-text'>
                 {/* <span className='name'>{userData?.user?.userName}</span>
                 <span className='email'>{userData?.user?.userEmail}</span> */}
                 
@@ -72,85 +76,93 @@ function ProfilePage() {
               </div>
             </div>
           </div>
-          <div><h4>General</h4></div>
-          <div className='gap-colunm'>
-            <div className='first-row'>
-              <div className='merge-row'>
-                <div className='back-arrow'><GoHeart/></div>
-                <div>Favorite Cars</div>
+          <div className='row-formate'>
+            <div className='first-div'>
+              <div><h4>General</h4></div>
+              <div className='gap-colunm'>
+                <div className='first-row'>
+                  <div className='merge-row'>
+                    <div className='simbol'><GoHeart/></div>
+                    <div>Favorite Cars</div>
+                  </div>
+                  <div className='arrow'><GrFormNext/></div>
+                </div>
+                <div className='first-row'>
+                  <div className='merge-row'>
+                    <div className='simbol'><VscHistory/></div>
+                    <div>Previous Rant</div>
+                  </div>
+                  <div className='arrow'><GrFormNext/></div>
+                </div>
+                <div className='first-row'>
+                  <div className='merge-row'>
+                    <div className='simbol'><IoNotificationsOutline/></div>
+                    <div>Notification</div>
+                  </div>
+                  <div className='arrow'><GrFormNext/></div>
+                </div>
+                <div className='first-row'>
+                  <div className='merge-row'>
+                    <div className='simbol'><TbPlugConnected/></div>
+                    <div>Connected to QENT Partnerships</div>
+                  </div>
+                  <div className='arrow'><GrFormNext/></div>
+                </div>
               </div>
-              <div className='arrow'><GrFormNext/></div>
             </div>
-            <div className='first-row'>
-              <div className='merge-row'>
-                <div className='back-arrow'><VscHistory/></div>
-                <div>Previous Rant</div>
+            <div className='second-div'>
+              <div><h4>Saport</h4></div>
+              <div className='gap-colunm'>
+                <div className='first-row'>
+                  <div className='merge-row'>
+                    <div className='back-arrow'><IoSettingsOutline/></div>
+                    <div>Setting</div>
+                  </div>
+                  <div className='arrow'><GrFormNext/></div>
+                </div>
+                <div className='first-row'>
+                  <div className='merge-row'>
+                    <div className='back-arrow'><IoLanguageOutline/></div>
+                    <div>Languages</div>
+                  </div>
+                  <div className='arrow'><GrFormNext/></div>
+                </div>
+                <div className='first-row'>
+                  <div className='merge-row'>
+                    <div className='back-arrow'><BsPersonAdd/></div>
+                    <div>Invite Friends</div>
+                  </div>
+                  <div className='arrow'><GrFormNext/></div>
+                </div>
+                <div className='first-row'>
+                  <div className='merge-row'>
+                    <div className='back-arrow'><CgFileDocument/></div>
+                    <div>Private policy</div>
+                  </div>
+                  <div className='arrow'><GrFormNext/></div>
+                </div>
+                <div className='first-row'>
+                  <div className='merge-row'>
+                    <div className='back-arrow'><LuHeadset/></div>
+                    <div>Gelp Support</div>
+                  </div>
+                  <div className='arrow'><GrFormNext/></div>
+                </div>
+                <button className='logout-btn' onClick={logoutHandle}>
+                  <div className='first-row'>
+                  <div className='merge-row'>
+                    <div className='back-arrow'><BiLogOutCircle/></div>
+                    <div>Log out</div>
+                  </div>
+                  <div className='arrow'><GrFormNext/></div>
+                </div>
+                </button>
+                <br/><br/>
               </div>
-              <div className='arrow'><GrFormNext/></div>
-            </div>
-            <div className='first-row'>
-              <div className='merge-row'>
-                <div className='back-arrow'><IoNotificationsOutline/></div>
-                <div>Notification</div>
-              </div>
-              <div className='arrow'><GrFormNext/></div>
-            </div>
-            <div className='first-row'>
-              <div className='merge-row'>
-                <div className='back-arrow'><TbPlugConnected/></div>
-                <div>Connected to QENT Partnerships</div>
-              </div>
-              <div className='arrow'><GrFormNext/></div>
             </div>
           </div>
-          <div><h4>Saport</h4></div>
-          <div className='gap-colunm'>
-            <div className='first-row'>
-              <div className='merge-row'>
-                <div className='back-arrow'><IoSettingsOutline/></div>
-                <div>Setting</div>
-              </div>
-              <div className='arrow'><GrFormNext/></div>
-            </div>
-            <div className='first-row'>
-              <div className='merge-row'>
-                <div className='back-arrow'><IoLanguageOutline/></div>
-                <div>Languages</div>
-              </div>
-              <div className='arrow'><GrFormNext/></div>
-            </div>
-            <div className='first-row'>
-              <div className='merge-row'>
-                <div className='back-arrow'><BsPersonAdd/></div>
-                <div>Invite Friends</div>
-              </div>
-              <div className='arrow'><GrFormNext/></div>
-            </div>
-            <div className='first-row'>
-              <div className='merge-row'>
-                <div className='back-arrow'><CgFileDocument/></div>
-                <div>Private policy</div>
-              </div>
-              <div className='arrow'><GrFormNext/></div>
-            </div>
-            <div className='first-row'>
-              <div className='merge-row'>
-                <div className='back-arrow'><LuHeadset/></div>
-                <div>Gelp Support</div>
-              </div>
-              <div className='arrow'><GrFormNext/></div>
-            </div>
-            <button className='logout-btn' onClick={logoutHandle}>
-              <div className='first-row'>
-              <div className='merge-row'>
-                <div className='back-arrow'><BiLogOutCircle/></div>
-                <div>Log out</div>
-              </div>
-              <div className='arrow'><GrFormNext/></div>
-            </div>
-            </button>
-            <br/><br/>
-          </div>
+          
+          
         </div>
       </div>
     </div>

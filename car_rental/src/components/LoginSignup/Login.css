@@ -1,9 +1,107 @@
-.container {
+.full-background {
+    background-image: url('../Assets/login&signup_Img.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    background: rgb(222, 221, 221);
+    min-height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    margin-left: 40px;
+    margin-right: 40px;
+    box-sizing: border-box;
+    background: rgb(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+}
+form h1{
+    color: white;
+    width: 400px;
+}
+.input-fields { 
+    padding: 10px 0px;
+    box-sizing: border-box;
+}
+.input-type{
+    height: 40px;
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    border-radius: 13px;
+    border: 1px solid white;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+::placeholder{
+    color: white;
+}
+.row-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0px;
+    margin-right: 0px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.remember{
+    color: white;
+}
+.forgot {
+    padding-right: 10px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+.btn {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    padding-right: 10px;
+}
+.btn1 {
+    height: 45px;
+    color: white;
+    background: black;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+.btn2 {
+    height: 45px;
+    color: black;
+    background: rgb(199, 197, 197);
+    border-radius: 25px;
+    border: 1px solid black;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
 .header {
     display: flex;
     justify-content: flex-start;
@@ -38,50 +136,12 @@
     font-size: 14px;
     box-sizing: border-box;
 }
-.row-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 15px;
-    font-size: 14px;
-    box-sizing: border-box;
-}
+
 .remember input {
     margin-right: 10px;
 }
-.forgot {
-    padding-right: 10px;
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-    font-weight: 500;
-}
-.btn {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-    padding-right: 10px;
-}
-.btn1 {
-    height: 45px;
-    color: white;
-    background: black;
-    border-radius: 25px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-}
-.btn2 {
-    height: 45px;
-    color: black;
-    background: rgb(199, 197, 197);
-    border-radius: 25px;
-    border: 1px solid black;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-}
+
+
 .btn-with {
     display: flex;
     flex-direction: column;

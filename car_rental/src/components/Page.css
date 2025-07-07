@@ -1,3 +1,83 @@
+/* Home */
+
+.homecontainer{
+    background: gray;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+}
+.header{
+    height: 30px;
+    width: 100%;
+    max-width: calc(100% - 40px);
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    background: rgb(224, 188, 122);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(168, 167, 167);
+}
+.headerNav{
+    display: flex;
+    box-sizing: border-box;
+    gap: 10px;
+    flex-direction: row;
+}
+.text{
+    padding-right: 20px;
+}
+.headerNav a{
+    padding-right: 10px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+
+
+
+/* Header */
+.nav-item {
+
+    text-decoration: none;
+    color: gray;
+    font-size: 18px;
+}
+.nav-item.active {
+    color: white;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* profile */
 .profile-container {
     width: 100%;
     padding: 0px;
@@ -52,6 +132,32 @@
     flex-direction: column;
     text-align: left;
 }
+.row-formate{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-evenly;
+}
+.first-div{
+    width: 50%;
+    padding: 20px;
+}
+.second-div{
+    width: 50%;
+    padding: 20px;
+}
+.simbol{
+   background: rgb(235, 233, 233);
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    border: 1px solid rgb(182, 176, 176);
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+
 .first-row {
     display: flex;
     width: 100%;
@@ -74,7 +180,7 @@
 .edit-part span {
     font-size: 14px;
 }
-.text {
+.profile-text {
     display: flex;
     display: flex;
     gap: 4px; 
@@ -124,4 +230,15 @@
 .arrow {
     font-size: 28px;
     color: rgb(188, 186, 186);
+}
+
+.homepage-profile{
+    display: flex;
+    width: 40px;
+    height: 40px;
+}
+.home-first-row{
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }

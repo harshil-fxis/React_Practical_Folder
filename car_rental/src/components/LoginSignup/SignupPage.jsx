@@ -24,7 +24,7 @@ class SignupPage extends Component {
         e.preventDefault()
         const {name, email, password, country} = this.state;
         console.log(this.state)
-        axios.post('https://b52d-103-173-21-78.ngrok-free.app/signup', {
+        axios.post('https://4bb9-103-173-21-78.ngrok-free.app/signup', {
             name,email,password,country})
             .then(response => {
                 alert("Signup Successful!")
@@ -40,35 +40,60 @@ class SignupPage extends Component {
     }
     render() {
         const {name, email, password, country} = this.state;
-        return (
-        <div className='container'>
-            <div className='header'>
-                <div className='text'> <img src={logo} alt=''/><h2>Qent</h2></div>
-            </div>
-            <div><h2>Sign Up</h2></div>
-            <div className='form'>
-                <input className='input-field' name='name' type='text' value={name} onChange={this.changeHandler} placeholder='Full Name' />
-                <input className='input-field' name='email' type='email' value={email} onChange={this.changeHandler} placeholder='Email Address'/>
-                <input className='input-field' name='password' type='password' value={password} onChange={this.changeHandler} placeholder='Password'/>
-                <input className='input-field' name='country' type='text' value={country} onChange={this.changeHandler} placeholder='Country' />
-            </div>
-            <div className='btn'>
-                <button className='btn1' onClick={this.submitHandler}>Sing up</button>
-                <button className='btn2' onClick={() => this.props.navigate('/')}>Login</button>
-            </div>
-            <div className='divider'>
-                <span>Or</span>
-            </div>
-            <div className='btn-with'>
-                <button className='btn3'><FaApple className='icon1'/> Apple pay</button>
-                <button className='btn4'><FaGoogle className='icon2'/> Google pay</button>
-            </div>
-            <div className='btm-text'>
-                <div>Already have an account?</div>
-                <a href='#' className='forgot'>Login.</a>
-            </div>
+        return(
+            <div className='full-background'>
+                <div className='container'>
+                <form>
+                    <h1>Sign Up</h1>
+                    <div className='input-fields'>
+                        <input className='input-type' name='name' type='text' value={name} onChange={this.changeHandler} placeholder='Full Name' />
+                    </div>
+                    <div className='input-fields'>  
+                        <input className='input-type' name='email' type='email' value={email} onChange={this.changeHandler} placeholder='Email Address'/>
+                    </div>
+                    <div className='input-fields'> 
+                        <input className='input-type' name='password' type='password' value={password} onChange={this.changeHandler} placeholder='Password'/>
+                    </div>
+                    <div className='input-fields'>
+                        <input className='input-type' name='country' type='text' value={country} onChange={this.changeHandler} placeholder='Country' />
+                    </div>
+                    <div className='btn'>
+                        <button className='btn1' onClick={this.submitHandler}>Sing up</button>
+                        <button className='btn2' onClick={() => this.props.navigate('/')}>Login</button>
+                    </div>
+                </form>
+                </div>
             </div>
         )
+        // return (
+        // <div className='container'>
+        //     <div className='header'>
+        //         <div className='text'> <img src={logo} alt=''/><h2>Qent</h2></div>
+        //     </div>
+        //     <div><h2>Sign Up</h2></div>
+        //     <div className='form'>
+        //         <input className='input-field' name='name' type='text' value={name} onChange={this.changeHandler} placeholder='Full Name' />
+        //         <input className='input-field' name='email' type='email' value={email} onChange={this.changeHandler} placeholder='Email Address'/>
+        //         <input className='input-field' name='password' type='password' value={password} onChange={this.changeHandler} placeholder='Password'/>
+        //         <input className='input-field' name='country' type='text' value={country} onChange={this.changeHandler} placeholder='Country' />
+        //     </div>
+        //     <div className='btn'>
+        //         <button className='btn1' onClick={this.submitHandler}>Sing up</button>
+        //         <button className='btn2' onClick={() => this.props.navigate('/')}>Login</button>
+        //     </div>
+        //     <div className='divider'>
+        //         <span>Or</span>
+        //     </div>
+        //     <div className='btn-with'>
+        //         <button className='btn3'><FaApple className='icon1'/> Apple pay</button>
+        //         <button className='btn4'><FaGoogle className='icon2'/> Google pay</button>
+        //     </div>
+        //     <div className='btm-text'>
+        //         <div>Already have an account?</div>
+        //         <a href='#' className='forgot'>Login.</a>
+        //     </div>
+        //     </div>
+        // )
     }
 }
 
