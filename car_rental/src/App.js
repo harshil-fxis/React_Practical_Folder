@@ -8,6 +8,9 @@ import BottomNavBar from './components/BottomNavBar';
 import BottomPage from './components/BottomPage';
 import { useEffect } from 'react';
 import ProfilePage from './components/ProfilePage';
+import OtpPage from './components/LoginSignup/OtpPage';
+import SearchPage from './components/SearchPage';
+import NotificationPage from './components/NotificationPage';
 
 const AppWrapper = () => {
   const navigate = useNavigate()
@@ -28,7 +31,10 @@ const AppWrapper = () => {
         <Routes>
           <Route path='/' element={<LoginPage />} />
           <Route path='/signup' element={<SignupPage />} />
+          <Route path='/otp' element={<OtpPage />} />
           <Route path='/home' element={<HomePage />} />
+          <Route path='/search' element={<SearchPage />} />
+          <Route path='/notification' element={<NotificationPage />} />
           <Route path='/profile' element={<ProfilePage />} />
         </Routes>
     </div>

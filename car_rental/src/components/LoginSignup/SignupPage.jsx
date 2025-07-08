@@ -14,7 +14,8 @@ class SignupPage extends Component {
          name: '',
          email: '',
          password: '',
-         country: ''
+         country: '',
+         phone: ''
       }
     }
     changeHandler = (e) => {
@@ -22,10 +23,10 @@ class SignupPage extends Component {
     }
     submitHandler = e => {
         e.preventDefault()
-        const {name, email, password, country} = this.state;
+        const {name, email, password, country, phone} = this.state;
         console.log(this.state)
-        axios.post('https://4bb9-103-173-21-78.ngrok-free.app/signup', {
-            name,email,password,country})
+        axios.post('https://f8e0169a92fa.ngrok-free.app/signup', {
+            name,email,password,country,phone})
             .then(response => {
                 alert("Signup Successful!")
                 console.log(response)
@@ -39,7 +40,7 @@ class SignupPage extends Component {
 
     }
     render() {
-        const {name, email, password, country} = this.state;
+        const {name, email, password, country, phone} = this.state;
         return(
             <div className='full-background'>
                 <div className='container'>
@@ -56,6 +57,9 @@ class SignupPage extends Component {
                     </div>
                     <div className='input-fields'>
                         <input className='input-type' name='country' type='text' value={country} onChange={this.changeHandler} placeholder='Country' />
+                    </div>
+                    <div className='input-fields'>
+                        <input className='input-type' name='phone' type='text' value={phone} onChange={this.changeHandler} placeholder='phone No.' />
                     </div>
                     <div className='btn'>
                         <button className='btn1' onClick={this.submitHandler}>Sing up</button>

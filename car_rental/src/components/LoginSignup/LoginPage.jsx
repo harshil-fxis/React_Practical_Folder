@@ -27,7 +27,7 @@ class LoginPage extends Component {
     loginHandler = (e) => {
       localStorage.clear()
         e.preventDefault();
-        axios.post('https://4bb9-103-173-21-78.ngrok-free.app/login', {
+        axios.post('https://f8e0169a92fa.ngrok-free.app/login', {
           email: this.state.email,
           password: this.state.password
         })
@@ -48,7 +48,7 @@ class LoginPage extends Component {
           console.log(response.data)
           alert("Login successfully!")
           this.props.loginSuccess(data)
-          return this.props.navigate('/home')
+          return this.props.navigate('/otp')
           
           // this.props.navigate('/home')
         })

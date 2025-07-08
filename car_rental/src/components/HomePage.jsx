@@ -11,23 +11,17 @@ import ProfilePage from './ProfilePage';
 
 const HomePage = () => {
   return (
-   <div className='homecontainer'>
-    <div className='header'>
+   <div className='profile-container'>
+      <div className='header'>
       <div className='text'> <img src={logo} alt=''/><h2>Qent</h2></div>
       <div className='headerNav'>
-        {/* <Routes>
-          <Route path='home' element={<HomePage />} />
-          <Route path='profile' element={<ProfilePage />} />
-        </Routes> */}
         <NavLink to="/home" className="nav-item">Home</NavLink>
+        <NavLink to="/search" className="nav-item">Search</NavLink>
+        <NavLink to="/notification" className="nav-item">Notification</NavLink>
         <NavLink to="/profile" className="nav-item">Profile</NavLink>
-        {/* <Link to='/button/home' className='home'>Home</Link>
-        <Link to={} className='about'>About</Link>
-        <Link to={} className='search'>Search</Link>
-        <Link to={} className='notification'>Notification</Link>
-        <Link to='/bottom/profile' className='profile'>Profile</Link> */}
       </div>
     </div>
+    <div><h1>Home page</h1></div>
    </div>
   )
 }

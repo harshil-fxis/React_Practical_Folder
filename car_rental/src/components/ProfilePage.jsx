@@ -48,34 +48,14 @@ function ProfilePage() {
         <div className='text'> <img src={logo} alt=''/><h2>Qent</h2></div>
         <div className='headerNav'>
           <NavLink to="/home" className="nav-item">Home</NavLink>
+          <NavLink to="/search" className="nav-item">Search</NavLink>
+          <NavLink to="/notification" className="nav-item">Notification</NavLink>
           <NavLink to="/profile" className="nav-item">Profile</NavLink>              
         </div>
       </div>
       <div className='body'> 
         <div className='body-column'>
-          <div className='first-row'>
-            <div className='profile-part'>
-              <div className='profile-img'><img src={
-                profilePic
-                  ? profile 
-                  : `https://4bb9-103-173-21-78.ngrok-free.app/uploads/${profilePic}`
-                } 
-                alt='' style={{width:"70px",height: "70px", borderRadius: "50%",objectFit: 'cover' }}/></div>
-              <div className='profile-text'>
-                {/* <span className='name'>{userData?.user?.userName}</span>
-                <span className='email'>{userData?.user?.userEmail}</span> */}
-                
-                <span className='name'>{name}</span>
-                <span className='email'>{email}</span>
-              </div>
-            </div>
-            <div className='edit-part'>
-              <div className='edit-profile-button'>
-                <FiEdit3/>
-                <span>Edit profile</span>
-              </div>
-            </div>
-          </div>
+          
           <div className='row-formate'>
             <div className='first-div'>
               <div><h4>General</h4></div>
@@ -108,10 +88,7 @@ function ProfilePage() {
                   </div>
                   <div className='arrow'><GrFormNext/></div>
                 </div>
-              </div>
-            </div>
-            <div className='second-div'>
-              <div><h4>Saport</h4></div>
+                <div><h4>Saport</h4></div>
               <div className='gap-colunm'>
                 <div className='first-row'>
                   <div className='merge-row'>
@@ -159,6 +136,34 @@ function ProfilePage() {
                 </button>
                 <br/><br/>
               </div>
+              </div>
+            </div>
+
+            
+            <div className='second-div'>
+              <div className='first-row'>
+            <div className='profile-part'>
+              <div className='profile-img'><img src={
+                profilePic
+                  ? profile 
+                  : `https://f8e0169a92fa.ngrok-free.app/uploads/${profilePic}`
+                } 
+                alt='' style={{width:"100px",height: "100px", borderRadius: "50%",objectFit: 'cover' }}/></div>
+              <div className='profile-text'>
+                {/* <span className='name'>{userData?.user?.userName}</span>
+                <span className='email'>{userData?.user?.userEmail}</span> */}
+                
+                <span className='name'>{name}</span>
+                <span className='email'>{email}</span>
+              </div>
+            </div>
+            <div className='edit-part'>
+              <div className='edit-profile-button'>
+                <FiEdit3/>
+                <span>Edit profile</span>
+              </div>
+            </div>
+          </div>
             </div>
           </div>
           
