@@ -134,13 +134,19 @@
 .body {
     display: flex;
     width: 100%;
-    max-width: calc(100% - 40px);
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    /* max-width: calc(100% - 40px); */
     /* padding: 20px; */
     
 }
 .body-column{
     display: flex;
     width: 100%;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
     flex-direction: column;
     text-align: left;
 }
@@ -150,19 +156,21 @@
     justify-content: space-evenly;
 }
 .first-div{
-    width: 30%;
-    height: 630px;
+    width: 100%;
     padding: 20px;
-    overflow-x: auto;
+    padding-left: 40px;
+    padding-top: 30px;
     margin: 0px;
     box-sizing: border-box;
 }
 .second-div{
-    background: gainsboro;
-    width: 100%;
+    width: 30%;
+    height: 635px;
     padding: 20px;
     margin: 0px;
     box-sizing: border-box;
+    overflow-x: auto;
+    border-left: 2px solid rgb(235, 223, 223);
 }
 .simbol{
    background: rgb(235, 233, 233);
@@ -188,6 +196,7 @@
 .profile-part {
     display: flex;
     width: 100%;
+    gap: 15px;
     flex-direction: row;
     text-align: left;
 }
@@ -206,7 +215,7 @@
 .profile-text {
     display: flex;
     display: flex;
-    gap: 4px; 
+    gap: 7px; 
     text-align: left;
     flex-direction: column;
     align-items: flex-start;

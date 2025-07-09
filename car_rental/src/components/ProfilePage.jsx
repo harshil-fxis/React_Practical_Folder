@@ -58,6 +58,36 @@ function ProfilePage() {
           
           <div className='row-formate'>
             <div className='first-div'>
+              <div className='first-row'>
+                <div className='profile-part'>
+                  <div className='profile-img'><img src={
+                    profilePic
+                      ? profile 
+                      : `https://7442ac3f5bea.ngrok-free.app/uploads/${profilePic}`
+                    } 
+                    alt='' style={{width:"100px",height: "100px", borderRadius: "50%",objectFit: 'cover' }}/>
+                  </div>
+                  <div className='profile-text'>
+                    {/* <span className='name'>{userData?.user?.userName}</span>
+                    <span className='email'>{userData?.user?.userEmail}</span> */}
+                    
+                    <span className='name'>{name}</span>
+                    <span className='email'>{email}</span>
+                  </div>
+                </div>
+                <div className='edit-part'>
+                  <div className='edit-profile-button'>
+                    <FiEdit3/>
+                    <span>Edit profile</span>
+                  </div>
+                </div>
+              </div>
+              
+            
+            </div>
+
+            
+            <div className='second-div'>
               <div><h4>General</h4></div>
               <div className='gap-colunm'>
                 <div className='first-row'>
@@ -134,36 +164,8 @@ function ProfilePage() {
                   <div className='arrow'><GrFormNext/></div>
                 </div>
                 </button>
-                <br/><br/>
               </div>
               </div>
-            </div>
-
-            
-            <div className='second-div'>
-              <div className='first-row'>
-            <div className='profile-part'>
-              <div className='profile-img'><img src={
-                profilePic
-                  ? profile 
-                  : `https://f8e0169a92fa.ngrok-free.app/uploads/${profilePic}`
-                } 
-                alt='' style={{width:"100px",height: "100px", borderRadius: "50%",objectFit: 'cover' }}/></div>
-              <div className='profile-text'>
-                {/* <span className='name'>{userData?.user?.userName}</span>
-                <span className='email'>{userData?.user?.userEmail}</span> */}
-                
-                <span className='name'>{name}</span>
-                <span className='email'>{email}</span>
-              </div>
-            </div>
-            <div className='edit-part'>
-              <div className='edit-profile-button'>
-                <FiEdit3/>
-                <span>Edit profile</span>
-              </div>
-            </div>
-          </div>
             </div>
           </div>
           

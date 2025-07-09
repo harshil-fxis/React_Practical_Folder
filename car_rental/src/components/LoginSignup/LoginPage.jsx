@@ -27,7 +27,7 @@ class LoginPage extends Component {
     loginHandler = (e) => {
       localStorage.clear()
         e.preventDefault();
-        axios.post('https://f8e0169a92fa.ngrok-free.app/login', {
+        axios.post('https://7442ac3f5bea.ngrok-free.app/login', {
           email: this.state.email,
           password: this.state.password
         })
@@ -39,11 +39,13 @@ class LoginPage extends Component {
           const name = response.data.userName
           const email = response.data.userEmail
           const profilePic = response.data.profilePic
+          const phone = response.data.phone
           
           localStorage.setItem("token", token)
           localStorage.setItem("name", name)
           localStorage.setItem("email", email)
           localStorage.setItem("profilePic", profilePic)
+          localStorage.setItem("phone", phone)
           
           console.log(response.data)
           alert("Login successfully!")
