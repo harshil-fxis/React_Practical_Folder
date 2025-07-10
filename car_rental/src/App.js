@@ -22,7 +22,7 @@ const AppWrapper = () => {
     if(token && currentPath == "/" ){
       navigate("/home")
     }
-    if(!token && currentPath == "/"){
+    if(!token && currentPath == "/" && currentPath == "/otp"){
       navigate("/")
     }
   },[navigate])

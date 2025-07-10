@@ -63,7 +63,7 @@ function ProfilePage() {
                   <div className='profile-img'><img src={
                     profilePic
                       ? profile 
-                      : `https://7442ac3f5bea.ngrok-free.app/uploads/${profilePic}`
+                      : `https://48b6617f8879.ngrok-free.app/uploads/${profilePic}`
                     } 
                     alt='' style={{width:"100px",height: "100px", borderRadius: "50%",objectFit: 'cover' }}/>
                   </div>

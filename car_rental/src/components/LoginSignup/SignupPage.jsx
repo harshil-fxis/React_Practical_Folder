@@ -25,7 +25,7 @@ class SignupPage extends Component {
         e.preventDefault()
         const {name, email, password, country, phone} = this.state;
         console.log(this.state)
-        axios.post('https://f8e0169a92fa.ngrok-free.app/signup', {
+        axios.post('https://48b6617f8879.ngrok-free.app/signup', {
             name,email,password,country,phone})
             .then(response => {
                 alert("Signup Successful!")
