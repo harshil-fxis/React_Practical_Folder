@@ -48,6 +48,7 @@ function ProfilePage() {
         <div className='text'> <img src={logo} alt=''/><h2>Qent</h2></div>
         <div className='headerNav'>
           <NavLink to="/home" className="nav-item">Home</NavLink>
+          <NavLink to="/about" className="nav-item">About</NavLink>
           <NavLink to="/search" className="nav-item">Search</NavLink>
           <NavLink to="/notification" className="nav-item">Notification</NavLink>
           <NavLink to="/profile" className="nav-item">Profile</NavLink>              
@@ -63,7 +64,7 @@ function ProfilePage() {
                   <div className='profile-img'><img src={
                     profilePic
                       ? profile 
-                      : `https://48b6617f8879.ngrok-free.app/uploads/${profilePic}`
+                      : `https://e4cef5192058.ngrok-free.app/uploads/${profilePic}`
                     } 
                     alt='' style={{width:"100px",height: "100px", borderRadius: "50%",objectFit: 'cover' }}/>
                   </div>

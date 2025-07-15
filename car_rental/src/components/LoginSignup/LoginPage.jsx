@@ -27,7 +27,7 @@ class LoginPage extends Component {
     loginHandler = (e) => {
       localStorage.clear()
         e.preventDefault();
-        axios.post('https://48b6617f8879.ngrok-free.app/login', {
+        axios.post('https://e4cef5192058.ngrok-free.app/login', {
           email: this.state.email,
           password: this.state.password
         })

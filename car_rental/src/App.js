@@ -11,6 +11,7 @@ import ProfilePage from './components/ProfilePage';
 import OtpPage from './components/LoginSignup/OtpPage';
 import SearchPage from './components/SearchPage';
 import NotificationPage from './components/NotificationPage';
+import AboutPage from './components/AboutPage';
 
 const AppWrapper = () => {
   const navigate = useNavigate()
@@ -33,6 +34,7 @@ const AppWrapper = () => {
           <Route path='/signup' element={<SignupPage />} />
           <Route path='/otp' element={<OtpPage />} />
           <Route path='/home' element={<HomePage />} />
+          <Route path='/about' element={<AboutPage />} />
           <Route path='/search' element={<SearchPage />} />
           <Route path='/notification' element={<NotificationPage />} />
           <Route path='/profile' element={<ProfilePage />} />

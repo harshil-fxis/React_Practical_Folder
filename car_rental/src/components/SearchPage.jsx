@@ -9,6 +9,7 @@ function SearchPage() {
         <div className='text'> <img src={logo} alt=''/><h2>Qent</h2></div>
         <div className='headerNav'>
           <NavLink to="/home" className="nav-item">Home</NavLink>
+          <NavLink to="/about" className="nav-item">About</NavLink>
           <NavLink to="/search" className="nav-item">Search</NavLink>
           <NavLink to="/notification" className="nav-item">Notification</NavLink>
           <NavLink to="/profile" className="nav-item">Profile</NavLink>

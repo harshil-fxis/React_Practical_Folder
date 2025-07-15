@@ -1,3 +1,4 @@
+import { DateRange } from '@mui/icons-material'
 import { DatePicker } from '@mui/lab'
 import { Stack, TextField } from '@mui/material'
 import React, { useState } from 'react'
@@ -7,7 +8,7 @@ const MuiDatePicker = () => {
     console.log({selectedDate})
   return (
     <Stack spacing={4} sx={{width: '250px'}}>
-        <DatePicker label='Date Picker'></DatePicker>
+        {/* <DateRange startText='Check-in' endText='Check-out' value={selectedDate} onChange={(newValue) => { setSelectedDate(newValue)}}/>
         <DatePicker 
             label='Date Picker' 
             // renderInput={(params) => <TextField {...params}/>}
@@ -15,7 +16,7 @@ const MuiDatePicker = () => {
             // onChange={(newValue) => {
             //     setSelectedDate(newValue)
             // }}
-        />
+        /> */}
     </Stack>
   )
 }
