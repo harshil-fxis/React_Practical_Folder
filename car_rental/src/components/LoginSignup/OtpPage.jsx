@@ -15,7 +15,8 @@ class OTPPage extends Component {
       super(props)
       this.state = {
          otp: ['','','',''],
-         timer: 60
+         timer: 60,
+         phone: localStorage.getItem("phone"),
       }
       this.inputRef = [React.createRef(), React.createRef(), React.createRef(), React.createRef()]
     }
@@ -25,14 +26,14 @@ class OTPPage extends Component {
     }
 
     startTimer = () => {
+      const endTime = Date.now() + 60000
       this.timerInterval = setInterval(() => {
-        this.setState((prevState) => {
-          if(prevState.timer <= 1){
-            clearInterval(this.timerInterval)
-            return {timer : 0 }
-          }
-          return { timer: prevState.timer -1 }
-        })
+        const remaing = Math.max(0, Math.floor((endTime - Date.now()) / 1000))
+        this.setState({timer: remaing})
+        
+        if (remaing === 0) {
+          clearInterval(this.timerInterval)
+        }
       }, 1000)
     }
 
@@ -66,7 +67,7 @@ class OTPPage extends Component {
       formData.append("phone", phone)
       formData.append("otp", otp)
       try{
-        const response = await axios.post('https://8971f0061eff.ngrok-free.app/verify-otp', formData)
+        const response = await axios.post('https://e4cef5192058.ngrok-free.app/verify-otp', formData)
         console.log(formData)      
         alert(response.data.message)
         this.props.navigate('/home')
@@ -78,13 +79,18 @@ class OTPPage extends Component {
     }
 
     resetOtpHandler = async (e) => {
-      const phone = localStorage.getItem("phone")
+      // const phone = localStorage.getItem("phone")
+      const phone = this.state.phone
+      if(!phone){
+        alert("phone number is missing. please login again.")
+        return
+      }
       e.preventDefault();
 
       const formData = new FormData()
       formData.append("phone", phone)
       try{
-        const response = await axios.post('https://8971f0061eff.ngrok-free.app/reset-otp', formData)
+        const response = await axios.post('https://e4cef5192058.ngrok-free.app/reset-otp', formData)
         console.log(formData)      
         alert(response.data.message)
         console.log(response.data.new_otp)

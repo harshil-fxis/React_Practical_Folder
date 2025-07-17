@@ -20,6 +20,7 @@ import { useNavigate } from 'react-router-dom';
 import { logout } from '../redux/useSlices';
 import logo from './Assets/Group 1529.png';
 import { NavLink } from 'react-router-dom';
+import { Stack } from '@mui/material';
 
 function ProfilePage() {
   // const userData = useSelector((state) => state.user)
@@ -43,7 +44,10 @@ function ProfilePage() {
   }
 
   return (
-    <div className='profile-container'>
+    <div className='homecontainer'>
+      <Stack className='profile-first-container'>
+      <h1>Your Ride, Your Way.</h1>
+      <br/>
       <div className='header'>
         <div className='text'> <img src={logo} alt=''/><h2>Qent</h2></div>
         <div className='headerNav'>
@@ -54,6 +58,7 @@ function ProfilePage() {
           <NavLink to="/profile" className="nav-item">Profile</NavLink>              
         </div>
       </div>
+      </Stack>
       <div className='body'> 
         <div className='body-column'>
           
@@ -64,7 +69,7 @@ function ProfilePage() {
                   <div className='profile-img'><img src={
                     profilePic
                       ? profile 
-                      : `https://e4cef5192058.ngrok-free.app/uploads/${profilePic}`
+                      : `https://fd7c836440f7.ngrok-free.app/uploads/${profilePic}`
                     } 
                     alt='' style={{width:"100px",height: "100px", borderRadius: "50%",objectFit: 'cover' }}/>
                   </div>
