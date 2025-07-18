@@ -67,7 +67,7 @@ class OTPPage extends Component {
       formData.append("phone", phone)
       formData.append("otp", otp)
       try{
-        const response = await axios.post('https://e4cef5192058.ngrok-free.app/verify-otp', formData)
+        const response = await axios.post('https://b3e1d4eb7235.ngrok-free.app/verify-otp', formData)
         console.log(formData)      
         alert(response.data.message)
         this.props.navigate('/home')
@@ -90,7 +90,7 @@ class OTPPage extends Component {
       const formData = new FormData()
       formData.append("phone", phone)
       try{
-        const response = await axios.post('https://e4cef5192058.ngrok-free.app/reset-otp', formData)
+        const response = await axios.post('https://b3e1d4eb7235.ngrok-free.app/reset-otp', formData)
         console.log(formData)      
         alert(response.data.message)
         console.log(response.data.new_otp)

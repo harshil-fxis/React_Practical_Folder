@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import profile from './Assets/profile.png';
 import { IoChevronBack } from "react-icons/io5";
 import { BsThreeDots } from "react-icons/bs";
@@ -20,44 +20,86 @@ import { useNavigate } from 'react-router-dom';
 import { logout } from '../redux/useSlices';
 import logo from './Assets/Group 1529.png';
 import { NavLink } from 'react-router-dom';
-import { Stack } from '@mui/material';
+import { Box, Button, Input, InputAdornment, Stack, TextField, Typography } from '@mui/material';
+import axios from 'axios'
+import { loginSuccess } from '../redux/useSlices'
 
 function ProfilePage() {
-  // const userData = useSelector((state) => state.user)
-  // const imageurl = userData?.user?.profilePic
-  // console.log(`imageurl: ${imageurl}`)
-
+  const userData = useSelector((state) => state.user)
+  const imageurl = userData?.user?.profilePic
+  console.log(`imageurl: ${imageurl}`)
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   // const dispatch = useDispatch()
 
-  const name = localStorage.getItem("name")
-  const email = localStorage.getItem("email")
-  const profilePic = localStorage.getItem("profilePic")
-  console.log(profilePic)
-  // const { userName, userEmail } = userData?.user || {}
-  // console.log(`name : ${userData?.user?.userName}`)
+  // const name = localStorage.getItem("name")
+  // const email = localStorage.getItem("email")
+  // const profilePic = localStorage.getItem("profilePic")
+  // console.log(profilePic)
 
+  const { userName, userEmail } = userData?.user || {}
+  console.log(`name : ${userData?.user?.userName}`)
+  const fullName = userData?.user?.userName ?? ''
+  const nameParts = fullName.split(" ")
+  const firstName = nameParts[0] ?? ''
+  const lastName = nameParts[1] ?? ''
+  const id = userData?.user?.user
+  console.log(`id: ${id}`)
+  console.log(`name : ${userData?.user?.name}`)
+
+  const [isEditable, setEditable] = useState(false)
+  const [userDatas, setUserDatas] = useState({
+    id: id,
+    name: '',
+    surname: '',
+    email: '',
+    phone: ''
+  })
   const logoutHandle = () => {
     // window.location.reload();
     localStorage.clear()
     navigate("/") 
   }
-
+  const handleEdit = () => {
+    setEditable(true)
+  }
+  const handleCancel = () => {
+    setEditable(false)
+  }
+  const handleInputChange = (e) => {
+    const { name , value } = e.target
+    setUserDatas((prev) => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+  const handleSave = async () => {
+    try{
+      const response = await axios.put('https://b3e1d4eb7235.ngrok-free.app/editProfile',userDatas)
+      alert('Profile updated successfully')
+      setEditable(false)
+      // this.props.loginSuccess(userDatas)
+      dispatch(loginSuccess(userDatas))
+    }catch(error){
+      console.log(console.error)
+      alert('Failed to update profile')
+    }
+  }
   return (
     <div className='homecontainer'>
       <Stack className='profile-first-container'>
-      <h1>Your Ride, Your Way.</h1>
-      <br/>
-      <div className='header'>
-        <div className='text'> <img src={logo} alt=''/><h2>Qent</h2></div>
-        <div className='headerNav'>
-          <NavLink to="/home" className="nav-item">Home</NavLink>
-          <NavLink to="/about" className="nav-item">About</NavLink>
-          <NavLink to="/search" className="nav-item">Search</NavLink>
-          <NavLink to="/notification" className="nav-item">Notification</NavLink>
-          <NavLink to="/profile" className="nav-item">Profile</NavLink>              
+        <h1>Your Ride, Your Way.</h1>
+        <br/>
+        <div className='header'>
+          <div className='text'> <img src={logo} alt=''/><h2>Qent</h2></div>
+          <div className='headerNav'>
+            <NavLink to="/home" className="nav-item">Home</NavLink>
+            <NavLink to="/about" className="nav-item">About</NavLink>
+            <NavLink to="/search" className="nav-item">Search</NavLink>
+            <NavLink to="/notification" className="nav-item">Notification</NavLink>
+            <NavLink to="/profile" className="nav-item">Profile</NavLink>              
+          </div>
         </div>
-      </div>
       </Stack>
       <div className='body'> 
         <div className='body-column'>
@@ -67,28 +109,52 @@ function ProfilePage() {
               <div className='first-row'>
                 <div className='profile-part'>
                   <div className='profile-img'><img src={
-                    profilePic
+                    !imageurl
                       ? profile 
-                      : `https://fd7c836440f7.ngrok-free.app/uploads/${profilePic}`
+                      : `https://fd7c836440f7.ngrok-free.app/uploads/${imageurl}`
                     } 
                     alt='' style={{width:"100px",height: "100px", borderRadius: "50%",objectFit: 'cover' }}/>
                   </div>
                   <div className='profile-text'>
-                    {/* <span className='name'>{userData?.user?.userName}</span>
-                    <span className='email'>{userData?.user?.userEmail}</span> */}
+                    <span className='name'>{userData?.user?.userName == null ? userData?.user?.name + " " + userData?.user?.surname : userData?.user?.userName}</span>
+                    <span className='email'>{userData?.user?.userEmail == null ? userData?.user?.email : userData?.user?.userEmail}</span>
                     
-                    <span className='name'>{name}</span>
-                    <span className='email'>{email}</span>
+                    {/* <span className='name'>{name}</span>
+                    <span className='email'>{email}</span> */}
                   </div>
                 </div>
-                <div className='edit-part'>
+                <div className='edit-part' onClick={handleEdit}>
                   <div className='edit-profile-button'>
                     <FiEdit3/>
                     <span>Edit profile</span>
                   </div>
                 </div>
               </div>
-              
+              <Stack sx={{width:'100%', marginTop:'30px',alignItems:'start', bgcolor: !isEditable ? 'rgba(240, 247, 244, 1)' : 'rgba(233, 241, 253, 1)', padding:'20px', boxSizing:'border-box', borderTopRightRadius:'120px',borderBottomLeftRadius:'120px'}}>
+                <Typography sx={{fontSize:'25px', fontWeight:'bold', color: !isEditable ? 'rgba(189, 192, 190, 1)' : 'balck'}}>Edit Profile</Typography>
+                <Stack sx={{width:'100%',marginTop:'10px',display:'grid', flexDirection:'row', gridTemplateColumns:'repeat(2, 1fr)', gap:'20px',padding:'0px'}}>
+                  <Box sx={{flexDirection:'column'}}>
+                    <label style={{fontSize:'13px', color: !isEditable ? 'rgba(189, 192, 190, 1)' : 'black'}}>First Name:</label><br/>
+                    <TextField name='name' value={userDatas.name} onChange={handleInputChange} disabled={!isEditable} style={{height:'40px',width:'100%', marginTop:'5px',borderRadius:'10px',border:'none'}} type='text' placeholder={userData?.user?.userName == null ? userData?.user?.name : firstName} size='small' variant='outlined'/>
+                  </Box>
+                  <Box sx={{flexDirection:'column'}}>
+                    <label style={{fontSize:'13px', color: !isEditable ? 'rgba(189, 192, 190, 1)' : 'black'}}>Last Name:</label><br/>
+                    <TextField name='surname' value={userDatas.surname} disabled={!isEditable} onChange={handleInputChange} style={{height:'40px', width:'100%', marginTop:'5px',borderRadius:'10px',border:'none'}} type='text' placeholder={userData?.user?.userName == null ? userData?.user?.surname : lastName} size='small'/>
+                  </Box>
+                  <Box sx={{flexDirection:'column'}}>
+                    <label style={{fontSize:'13px', color: !isEditable ? 'rgba(189, 192, 190, 1)' : 'black'}}>Email Adress:</label><br/>
+                    <TextField name='email' value={userDatas.email} disabled={!isEditable} onChange={handleInputChange} style={{height:'40px', width:'100%', marginTop:'5px',borderRadius:'10px',border:'none'}} type='email' placeholder={userData?.user?.userEmail == null ? userData?.user?.email : userData?.user?.userEmail} size='small'/>
+                  </Box>
+                  <Box sx={{flexDirection:'column'}}>
+                    <label style={{fontSize:'13px', color: !isEditable ? 'rgba(189, 192, 190, 1)' : 'black'}}>Phone No.:</label><br/>
+                    <TextField name='phone' value={userDatas.phone} disabled={!isEditable} onChange={handleInputChange} style={{height:'40px', width:'100%', marginTop:'5px',borderRadius:'10px',border:'none'}} type='tel' placeholder={userData?.user?.phone} size='small'/>
+                  </Box>
+                </Stack>
+                <Stack sx={{width:'100%', alignItems:'center', justifyContent:'center', gap:'50px', marginTop:'30px' ,flexDirection:'row'}}>
+                  <Button disabled={!isEditable} onClick={handleCancel} variant='outlined' color='primary' >Cancle</Button>
+                  <Button disabled={!isEditable} onClick={handleSave} variant='contained' color='primary' >Save</Button>
+                </Stack>
+              </Stack>
             
             </div>
 
@@ -157,7 +223,7 @@ function ProfilePage() {
                 <div className='first-row'>
                   <div className='merge-row'>
                     <div className='back-arrow'><LuHeadset/></div>
-                    <div>Gelp Support</div>
+                    <div>Help Support</div>
                   </div>
                   <div className='arrow'><GrFormNext/></div>
                 </div>

@@ -431,7 +431,7 @@
     justify-content: space-evenly;
 }
 .first-div{
-    width: 100%;
+    width: 70%;
     padding: 20px;
     padding-left: 40px;
     padding-top: 30px;
@@ -440,7 +440,7 @@
 }
 .second-div{
     width: 30%;
-    height: 635px;
+    height: 500px;
     padding: 20px;
     margin: 0px;
     box-sizing: border-box;
@@ -483,6 +483,7 @@
     display: flex;
     width: 120px;
     text-align: right;
+    cursor: pointer;
 }
 .edit-part span {
     font-size: 14px;
