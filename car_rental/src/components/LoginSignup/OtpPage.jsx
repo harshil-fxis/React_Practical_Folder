@@ -9,6 +9,7 @@ import { loginSuccess } from '../../redux/useSlices';
 import { connect } from 'react-redux';
 import withRouter from '../withRouter';
 import backgroundImg from '../Assets/login&signup_Img.jpg'
+import { API } from './config';
 
 class OTPPage extends Component {
   constructor(props) {
@@ -67,7 +68,7 @@ class OTPPage extends Component {
       formData.append("phone", phone)
       formData.append("otp", otp)
       try{
-        const response = await axios.post('https://b3e1d4eb7235.ngrok-free.app/verify-otp', formData)
+        const response = await axios.post(API.VERYFY_OTP, formData)
         console.log(formData)      
         alert(response.data.message)
         this.props.navigate('/home')
@@ -90,7 +91,7 @@ class OTPPage extends Component {
       const formData = new FormData()
       formData.append("phone", phone)
       try{
-        const response = await axios.post('https://b3e1d4eb7235.ngrok-free.app/reset-otp', formData)
+        const response = await axios.post(API.RESET_OTP, formData)
         console.log(formData)      
         alert(response.data.message)
         console.log(response.data.new_otp)

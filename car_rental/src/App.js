@@ -3,15 +3,15 @@ import './App.css';
 import LoginPage from './components/LoginSignup/LoginPage';
 import SignupPage from './components/LoginSignup/SignupPage';
 import { BrowserRouter, Routes, Route, useNavigate} from 'react-router-dom'
-import HomePage from './components/HomePage';
+import HomePage from './screens/HomePage';
 import BottomNavBar from './components/BottomNavBar';
 import BottomPage from './components/BottomPage';
 import { useEffect } from 'react';
-import ProfilePage from './components/ProfilePage';
+import ProfilePage from './screens/ProfilePage';
 import OtpPage from './components/LoginSignup/OtpPage';
-import SearchPage from './components/SearchPage';
-import NotificationPage from './components/NotificationPage';
-import AboutPage from './components/AboutPage';
+import SearchPage from './screens/SearchPage';
+import NotificationPage from './screens/NotificationPage';
+import AboutPage from './screens/AboutPage';
 
 const AppWrapper = () => {
   const navigate = useNavigate()

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import profile from './Assets/profile.png';
+import profile from '../components/Assets/profile.png';
 import { IoChevronBack } from "react-icons/io5";
 import { BsThreeDots } from "react-icons/bs";
 import { FiEdit3 } from "react-icons/fi";
@@ -18,11 +18,14 @@ import './Page.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../redux/useSlices';
-import logo from './Assets/Group 1529.png';
+import logo from '../components/Assets/Group 1529.png';
 import { NavLink } from 'react-router-dom';
 import { Box, Button, Input, InputAdornment, Stack, TextField, Typography } from '@mui/material';
 import axios from 'axios'
 import { loginSuccess } from '../redux/useSlices'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import { API } from '../components/LoginSignup/config';
 
 function ProfilePage() {
   const userData = useSelector((state) => state.user)
@@ -75,7 +78,7 @@ function ProfilePage() {
   }
   const handleSave = async () => {
     try{
-      const response = await axios.put('https://b3e1d4eb7235.ngrok-free.app/editProfile',userDatas)
+      const response = await axios.put(API.EDIT_PROFILE,userDatas)
       alert('Profile updated successfully')
       setEditable(false)
       // this.props.loginSuccess(userDatas)
@@ -90,16 +93,7 @@ function ProfilePage() {
       <Stack className='profile-first-container'>
         <h1>Your Ride, Your Way.</h1>
         <br/>
-        <div className='header'>
-          <div className='text'> <img src={logo} alt=''/><h2>Qent</h2></div>
-          <div className='headerNav'>
-            <NavLink to="/home" className="nav-item">Home</NavLink>
-            <NavLink to="/about" className="nav-item">About</NavLink>
-            <NavLink to="/search" className="nav-item">Search</NavLink>
-            <NavLink to="/notification" className="nav-item">Notification</NavLink>
-            <NavLink to="/profile" className="nav-item">Profile</NavLink>              
-          </div>
-        </div>
+        <Header />
       </Stack>
       <div className='body'> 
         <div className='body-column'>
@@ -111,7 +105,7 @@ function ProfilePage() {
                   <div className='profile-img'><img src={
                     !imageurl
                       ? profile 
-                      : `https://fd7c836440f7.ngrok-free.app/uploads/${imageurl}`
+                      : `${API.PROFILE_IMG}/${imageurl}`
                     } 
                     alt='' style={{width:"100px",height: "100px", borderRadius: "50%",objectFit: 'cover' }}/>
                   </div>

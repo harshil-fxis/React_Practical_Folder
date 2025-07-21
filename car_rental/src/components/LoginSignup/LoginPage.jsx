@@ -8,6 +8,7 @@ import { loginSuccess } from '../../redux/useSlices';
 import { connect } from 'react-redux';
 import withRouter from '../withRouter';
 import backgroundImg from '../Assets/login&signup_Img.jpg'
+import { API } from './config';
 
 class LoginPage extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class LoginPage extends Component {
     loginHandler = (e) => {
       localStorage.clear()
         e.preventDefault();
-        axios.post('https://b3e1d4eb7235.ngrok-free.app/login', {
+        axios.post(API.LOGIN, {
           email: this.state.email,
           password: this.state.password
         })

@@ -5,6 +5,7 @@ import { FaApple,FaGoogle } from "react-icons/fa";
 import { useNavigate, useLocation, useParams, Navigate } from 'react-router-dom';
 import axios from 'axios'
 import withRouter from '../withRouter';
+import { API } from './config';
 
 
 class SignupPage extends Component {
@@ -25,7 +26,7 @@ class SignupPage extends Component {
         e.preventDefault()
         const {name, email, password, country, phone} = this.state;
         console.log(this.state)
-        axios.post('https://b3e1d4eb7235.ngrok-free.app/signup', {
+        axios.post(API.SIGNUP, {
             name,email,password,country,phone})
             .then(response => {
                 alert("Signup Successful!")

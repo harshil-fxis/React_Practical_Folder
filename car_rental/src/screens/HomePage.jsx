@@ -1,52 +1,51 @@
 import React from 'react'
 import './Page.css'
-import logo from './Assets/Group 1529.png';
 import { IoChevronBack } from "react-icons/io5";
 import { BsThreeDots } from "react-icons/bs";
 import { IoNotificationsOutline } from "react-icons/io5";
-import profile from './Assets/profile.png';
+import profile from '../components/Assets/profile.png';
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import ProfilePage from './ProfilePage';
 import { Box, Stack } from '@mui/material'
 import { purple } from '@mui/material/colors';
-import car from './Assets/fortuner1.png'
-import aboutCar from './Assets/about.png'
+import car from '../components/Assets/fortuner1.png'
+import aboutCar from '../components/Assets/about.png'
 
 // brand
-import mahindra from './Assets/Brands/mahindra.png'
-import suzuki from './Assets/Brands/suzuki.png'
-import bmw from './Assets/Brands/bmw.png'
-import hyundai from './Assets/Brands/hyundai.png'
-import toyota from './Assets/Brands/toyota.png'
-import kia from './Assets/Brands/kia.png'
-import honda from './Assets/Brands/honda.png'
-import tata from './Assets/Brands/tata.png'
-import w from './Assets/Brands/w.png'
-import mg from './Assets/Brands/mg.png'
+import mahindra from '../components/Assets/Brands/mahindra.png'
+import suzuki from '../components/Assets/Brands/suzuki.png'
+import bmw from '../components/Assets/Brands/bmw.png'
+import hyundai from '../components/Assets/Brands/hyundai.png'
+import toyota from '../components/Assets/Brands/toyota.png'
+import kia from '../components/Assets/Brands/kia.png'
+import honda from '../components/Assets/Brands/honda.png'
+import tata from '../components/Assets/Brands/tata.png'
+import w from '../components/Assets/Brands/w.png'
+import mg from '../components/Assets/Brands/mg.png'
 
 // car
-import car1 from './Assets/Cars/city1.jpg'
-import car12 from './Assets/Cars/city i.jpg'
-import car123 from './Assets/Cars/city i1.jpg'
-import car2 from './Assets/Cars/innova 1.jpg'
-import car22 from './Assets/Cars/innova i.jpg'
-import car223 from './Assets/Cars/innova i1.jpg'
-import car3 from './Assets/Cars/fortuner 1.jpg'
-import car32 from './Assets/Cars/fortuner i.jpg'
-import car323 from './Assets/Cars/fortuner i1.jpg'
-import car4 from './Assets/Cars/swift1.jpg'
-import car42 from './Assets/Cars/swift i.jpg'
-import car423 from './Assets/Cars/swift i1.jpg'
-import car5 from './Assets/Cars/thar rox1.jpg'
-import car52 from './Assets/Cars/roxx.jpg'
-import car523 from './Assets/Cars/roxx i1.jpg'
-import car6 from './Assets/Cars/baleno1.jpg'
-import car62 from './Assets/Cars/baleno i.jpg'
-import car623 from './Assets/Cars/baleno i1.jpg'
-import car7 from './Assets/Cars/xuv700.jpeg'
-import car72 from './Assets/Cars/xuv700 i.jpg'
-import car723 from './Assets/Cars/xuv700 i1.jpg'
+import car1 from '../components/Assets/Cars/city1.jpg'
+import car12 from '../components/Assets/Cars/city i.jpg'
+import car123 from '../components/Assets/Cars/city i1.jpg'
+import car2 from '../components/Assets/Cars/innova 1.jpg'
+import car22 from '../components/Assets/Cars/innova i.jpg'
+import car223 from '../components/Assets/Cars/innova i1.jpg'
+import car3 from '../components/Assets/Cars/fortuner 1.jpg'
+import car32 from '../components/Assets/Cars/fortuner i.jpg'
+import car323 from '../components/Assets/Cars/fortuner i1.jpg'
+import car4 from '../components/Assets/Cars/swift1.jpg'
+import car42 from '../components/Assets/Cars/swift i.jpg'
+import car423 from '../components/Assets/Cars/swift i1.jpg'
+import car5 from '../components/Assets/Cars/thar rox1.jpg'
+import car52 from '../components/Assets/Cars/roxx.jpg'
+import car523 from '../components/Assets/Cars/roxx i1.jpg'
+import car6 from '../components/Assets/Cars/baleno1.jpg'
+import car62 from '../components/Assets/Cars/baleno i.jpg'
+import car623 from '../components/Assets/Cars/baleno i1.jpg'
+import car7 from '../components/Assets/Cars/xuv700.jpeg'
+import car72 from '../components/Assets/Cars/xuv700 i.jpg'
+import car723 from '../components/Assets/Cars/xuv700 i1.jpg'
 
 // icon
 import { FaIndianRupeeSign } from "react-icons/fa6";
@@ -59,9 +58,11 @@ import MicIcon from '@mui/icons-material/HeadsetMic'
 import PhoneIcon from '@mui/icons-material/EventAvailable'
 import CarIcon from '@mui/icons-material/DirectionsCarFilled'
 import { GrTextAlignLeft } from 'react-icons/gr';
-import Facebook from './Assets/Icons/facebook.png'
-import Instagram from './Assets/Icons/instagram.png'
-import Twitter from './Assets/Icons/twitter.png'
+import Facebook from '../components/Assets/Icons/facebook.png'
+import Instagram from '../components/Assets/Icons/instagram.png'
+import Twitter from '../components/Assets/Icons/twitter.png'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 
 
@@ -71,16 +72,7 @@ const HomePage = () => {
     <Stack className='first-container'>
       <h1>Your Ride, Your Way.</h1>
       <br/>
-        <div className='header'>
-        <div className='text'> <img src={logo} alt=''/><h2>Qent</h2></div>
-        <div className='headerNav'>
-          <NavLink to="/home" className="nav-item">Home</NavLink>
-          <NavLink to="/about" className="nav-item">About</NavLink>
-          <NavLink to="/search" className="nav-item">Search</NavLink>
-          <NavLink to="/notification" className="nav-item">Notification</NavLink>
-          <NavLink to="/profile" className="nav-item">Profile</NavLink>
-        </div>
-      </div>
+      <Header />
     </Stack>
     <Stack className='img-section'>
       <img src={car}></img>
@@ -183,39 +175,7 @@ const HomePage = () => {
           </Stack>
         </Stack>
       </Stack>
-      <Stack sx={{width:'100%'}} className='footer-section'>
-        <Stack sx={{flexDirection:'row',justifyContent:'space-evenly',padding:'30px',gap:'10px'}}>
-            <Stack sx={{width:400,height:250, alignItems:'start'}}>
-              <h2>Qent</h2>
-              <span>
-                Search for cheap rental cars in India,With a diverse fleet of 19,000 vehicles. 
-                Weather offers its consumers an attractive and fun selection.
-              </span>
-              <span style={{flexDirection:'row',display:'inline-flex',cursor:'pointer',gap:'10px',marginTop:'30px'}}><img src={Instagram}/><img src={Facebook}/><Stack sx={{width:'37px',height:'37px',borderRadius:'5px',bgcolor:'blue',marginTop:'5px',marginLeft:'6px'}}><img src={Twitter}/></Stack></span>
-            </Stack>
-            <Stack sx={{width:150, height:250, gap:'10px'}}>
-              <h3>Quick Links</h3>
-              <span><a href='/home'>Home</a></span>
-              <span><a href='/about'>About</a></span>
-              <span><a href='/search'>Search</a></span>
-              <span><a href='/notification'>Notification</a></span>
-              <span><a href='/profile'>Profile</a></span>
-            </Stack>
-            <Stack sx={{ height:250,gap:'10px'}}>
-              <h3>Contact Us</h3>
-              <span>Email : support@qentcar.com</span>
-              <span>Phone : +91 8795687469</span>
-              <span>Address : Ahmedabad, Gujrat, India</span>
-            </Stack>
-            <Stack sx={{width:150, height:250,gap:'10px'}}>
-              <h3>Support</h3>
-              <span>Help center</span>
-              <span>Ask a question</span>
-              <span>Privacy policy</span>
-              <span>Teams & condition</span>
-            </Stack>
-        </Stack>
-      </Stack>
+      <Footer />
     </Stack>
    </div>
   )

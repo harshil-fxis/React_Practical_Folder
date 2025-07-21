@@ -1,11 +1,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import logo from './Assets/Group 1529.png';
+import logo from '../components/Assets/Group 1529.png';
 import { Stack } from '@mui/material';
-import car from './Assets/about.png'
-import Facebook from './Assets/Icons/facebook.png'
-import Instagram from './Assets/Icons/instagram.png'
-import Twitter from './Assets/Icons/twitter.png'
+import car from '../components/Assets/about.png'
+import Facebook from '../components/Assets/Icons/facebook.png'
+import Instagram from '../components/Assets/Icons/instagram.png'
+import Twitter from '../components/Assets/Icons/twitter.png'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const AboutPage = () => {
   return (
@@ -36,16 +38,7 @@ const AboutPage = () => {
               <br/>
             </Stack>
             <Stack className='about-second-container'>
-              <div className='header'>
-                  <div className='text'> <img src={logo} alt=''/><h2>Qent</h2></div>
-                  <div className='headerNav'>
-                    <NavLink to="/home" className="nav-item">Home</NavLink>
-                    <NavLink to="/about" className="nav-item">About</NavLink>
-                    <NavLink to="/search" className="nav-item">Search</NavLink>
-                    <NavLink to="/notification" className="nav-item">Notification</NavLink>
-                    <NavLink to="/profile" className="nav-item">Profile</NavLink>
-                  </div>
-              </div>
+              <Header />
             </Stack>
           </Stack>
           <Stack className='about-img-section'>
@@ -64,39 +57,7 @@ const AboutPage = () => {
             <p>Whether you need a car for business or a weekend getaway, Qent provides safe, clean and affordable cars with full support.</p>
           </Stack>
         </div>
-      <Stack sx={{width:'100%'}} className='footer-section'>
-        <Stack sx={{flexDirection:'row',justifyContent:'space-evenly',padding:'30px',gap:'10px'}}>
-          <Stack sx={{width:400,height:250, alignItems:'start'}}>
-                    <h2>Qent</h2>
-                    <span>
-                      Search for cheap rental cars in India,With a diverse fleet of 19,000 vehicles. 
-                      Weather offers its consumers an attractive and fun selection.
-                    </span>
-                    <span style={{flexDirection:'row',display:'inline-flex',cursor:'pointer',gap:'10px',marginTop:'30px'}}><img src={Instagram}/><img src={Facebook}/><Stack sx={{width:'37px',height:'37px',borderRadius:'5px',bgcolor:'blue',marginTop:'5px',marginLeft:'6px'}}><img src={Twitter}/></Stack></span>
-                  </Stack>
-                  <Stack sx={{width:150, height:250, gap:'10px'}}>
-                    <h3>Quick Links</h3>
-                    <span><a href='/home'>Home</a></span>
-                    <span><a href='/about'>About</a></span>
-                    <span><a href='/search'>Search</a></span>
-                    <span><a href='/notification'>Notification</a></span>
-                    <span><a href='/profile'>Profile</a></span>
-                  </Stack>
-                  <Stack sx={{ height:250,gap:'10px'}}>
-                    <h3>Contact Us</h3>
-                    <span>Email : support@qentcar.com</span>
-                    <span>Phone : +91 8795687469</span>
-                    <span>Address : Ahmedabad, Gujrat, India</span>
-                  </Stack>
-                  <Stack sx={{width:150, height:250,gap:'10px'}}>
-                    <h3>Support</h3>
-                    <span>Help center</span>
-                    <span>Ask a question</span>
-                    <span>Privacy policy</span>
-                    <span>Teams & condition</span>
-                  </Stack>
-              </Stack>
-            </Stack>
+      <Footer />
     </div>
   )
 }
