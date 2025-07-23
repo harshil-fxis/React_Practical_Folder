@@ -1,4 +1,4 @@
-const BASE_URL = "https://037d416cee39.ngrok-free.app"
+const BASE_URL = "https://c4aca2845657.ngrok-free.app"
 
 export const API = {
     LOGIN: `${BASE_URL}/login`,
