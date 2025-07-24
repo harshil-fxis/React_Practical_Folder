@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Page.css'
 import { IoChevronBack } from "react-icons/io5";
 import { BsThreeDots } from "react-icons/bs";
@@ -7,10 +7,12 @@ import profile from '../components/Assets/profile.png';
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import ProfilePage from './ProfilePage';
-import { Box, Stack } from '@mui/material'
+import { AppBar, Box, Stack } from '@mui/material'
 import { purple } from '@mui/material/colors';
 import car from '../components/Assets/fortuner1.png'
 import aboutCar from '../components/Assets/about.png'
+// import fetchData from '../api/OwnerApi';
+import { API } from '../components/LoginSignup/config';
 
 // brand
 import mahindra from '../components/Assets/Brands/mahindra.png'
@@ -63,10 +65,103 @@ import Instagram from '../components/Assets/Icons/instagram.png'
 import Twitter from '../components/Assets/Icons/twitter.png'
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import axios from 'axios';
 
 
 
 const HomePage = () => {
+  const [brands, setBrands] = useState([])
+  const [cars, setCars] = useState([])
+  const [selectedBrand, setSelectedBrands] = useState("")
+
+  useEffect(() => {
+    const loadData = async () => {
+
+      axios.get(API.FETCH_DATA, {
+        headers: {
+          Accept: "application/json",
+        }
+      })
+        .then(response => {
+          console.log(response.data)
+
+          // const allCars = []
+
+          // response.data.forEach((owner) => {
+          //   owner.cars.forEach((car) => {
+          //     if(car.brandName === brands) {
+          //       allCars.push(car)
+          //     }
+          //   })
+          // })
+          // setCars(allCars)
+
+          // const allCars = response.data.flatMap(owner => owner.cars)
+          const allCars = []
+          const brandSet = new Set()
+
+          response.data.forEach(owner => {
+            if (Array.isArray(owner.cars)) {
+              owner.cars.forEach((car) => {
+                allCars.push(car)
+                brandSet.add(car.brandName)
+                console.log(car.carName);
+              });
+            }
+          });
+          setCars(allCars)
+          setBrands([...brandSet])
+
+        //   const brandMap = new Map()
+        //   allCars.forEach(car => {
+        //     if(!brandMap.has(car.brandName)) {
+        //       brandMap.set(car.brandName, {
+        //       name: car.brandName,
+        //       image: car.image[0]
+        //     })
+        //   }
+        //   })
+        //   setBrands(Array.from(brandMap.values()))
+        //  setCars(allCars)
+        })
+        .catch(error => console.error("Error", error))
+
+        // const filteredCars = selectedBrand === "" ? cars :cars.filter((car) => car.brandName === selectedBrand)
+
+      // const res = await axios.get('https://725b66e81399.ngrok-free.app/allowner')
+      // const data = res.data
+
+
+      // const data = await fetchData()
+      // console.log("data: "+ data)
+
+      // if(!Array.isArray(data)){
+      //   console.log("Expected an array, got",typeof data)
+      //   return
+      // }
+   
+
+     
+    }
+    loadData()
+  }, [])
+
+  const brandImages = {
+    BMW: bmw,
+    Toyota: toyota,
+    Mahindra: mahindra,
+    Honda: honda,
+    Volkswagen: w,
+    Kia: kia,
+    Suzuki: suzuki,
+    MG: mg,
+    TATA: tata,
+    Hyundai: hyundai,
+    Toyota: toyota,
+    Mahindra: mahindra,
+    Honda: honda,
+  }
+  
   return (
    <div className='homecontainer'>
     <Stack className='first-container'>
@@ -83,10 +178,10 @@ const HomePage = () => {
         <h2>All Types of Brands</h2>
         <Stack className='brand-scroll' direction='column' gap={2} flexWrap={'wrap'} justifyContent={'center'}>
           {
-            brandList.map((item,index) => (
+            brands.map((item,index) => (
               <Box className='brand-box' key={index}>
-                <img height={60} width={60} src={item.img} alt={item.name}></img>
-                <span>{item.name}</span>
+                <img height={60} width={60} src={brandImages[item]} alt={item.name}></img>
+                <span>{item}</span>
               </Box>
             ))
           }
@@ -96,10 +191,11 @@ const HomePage = () => {
           <h2>Available Cars</h2>
           <Stack className='car-scroll' direction='row' gap={2} flexWrap={'wrap'} justifyContent={'center'}>
             {
-              carList.flatMap((owner) => owner.cars.map((car, index) => (
+              cars.map((car, index) => (
                 <Box className='car-box' key={index}>
                   <Stack className='imgs-section'>
-                    <img style={{objectFit:'cover', borderTopLeftRadius: '15px', borderTopRightRadius: '15px'}} src={car.image_urls[0]} alt={car.carName}></img>
+                    <img style={{height:'100%', width:'100%',objectFit:'cover', borderTopLeftRadius: '15px', borderTopRightRadius: '15px'}} src={`${API.PROFILE_IMG}/${car.image_urls[0]}`} alt={car.carName}></img>
+                    {console.log(car.image_urls[0])}
                   </Stack>
                   <Stack className='car-detail-section'>
                     <span style={{fontSize:'18px', fontWeight:500}}>{car.carName}</span>
@@ -108,7 +204,7 @@ const HomePage = () => {
                     <span><FaIndianRupeeSign/>  {car.price}</span>
                   </Stack>
                 </Box>
-              )))
+              ))
             }
           </Stack>
       </Stack>
@@ -191,6 +287,10 @@ const brandList = [
   {img: mg,name: "MG"},
   {img: tata,name: "TATA"},
   {img: hyundai,name: "Hyundai"},
+  {img: toyota,name: "Toyota"},
+  {img: mahindra,name: "Mahindra"},
+  {img: bmw,name: "BMW"},
+  {img: honda,name: "Honda"},
 ]
 
 const carList = [
